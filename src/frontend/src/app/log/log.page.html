@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Logs para EV: {{this.electrovalvulaId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Fecha</ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text> Estado </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let lg of this.logs" appResaltar>
+      <ion-col>
+        <ion-text>
+          {{lg.fecha  | date:'medium'}}
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          {{lg.apertura | abrCerr}}
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
